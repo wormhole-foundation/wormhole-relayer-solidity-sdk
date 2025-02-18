@@ -1,11 +1,12 @@
-GENERATORS = chains cctpDomains
+GENERATORS = chains cctpDomains chainConsts
 chains_TARGET = constants/Chains.sol
 cctpDomains_TARGET = constants/CctpDomains.sol
+chainConsts_TARGET = testing/ChainConsts.sol
 
 fnGeneratorTarget = ../src/$($(1)_TARGET)
 GENERATOR_TARGETS = $(foreach generator,$(GENERATORS),$(call fnGeneratorTarget,$(generator)))
 
-TEST_WRAPPERS = BytesParsing QueryResponse
+TEST_WRAPPERS = BytesParsing QueryResponse VaaLib TokenBridgeMessages CctpMessages
 
 fnTestWrapperTarget = ../test/generated/$(1)TestWrapper.sol
 TEST_WRAPPER_TARGETS =\
